@@ -1,3 +1,5 @@
+# Chatbot for Cavalier King Charles Spaniels
+
 ## Set up virtual environment
 
 ```bash
