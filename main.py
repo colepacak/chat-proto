@@ -1,4 +1,7 @@
 from openai import OpenAI
+from colorama import init, Fore, Style
+
+init()  # Initialize colorama
 
 class CavalierChatbot:
     def __init__(self):
@@ -37,6 +40,19 @@ class CavalierChatbot:
         }
         self.conversation_history = [self.system_message]
         self.client = OpenAI()
+        self.print_welcome()  # Add this line to print welcome message when bot is created
+    
+    def print_welcome(self):
+        print(f"""
+{Fore.CYAN}╔══════════════════════════════════════════╗
+║ Welcome to the Cavalier Spaniel Chatbot! ║
+╚══════════════════════════════════════════╝{Style.RESET_ALL}
+        
+Type your questions about Cavalier King Charles Spaniels
+{Fore.YELLOW}Commands:{Style.RESET_ALL}
+• {Fore.GREEN}clear{Style.RESET_ALL} - Reset conversation
+• {Fore.RED}exit{Style.RESET_ALL}  - End chat
+""")
     
     def get_response(self, user_prompt):
         # Add the new user message
@@ -73,4 +89,4 @@ while True:
         continue
     
     response = chatbot.get_response(user_input)
-    print("Bot:", response)
+    print("CavBot:", response)
